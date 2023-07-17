@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Patient List</title>
+    {% load static %}
+  </head>
+  <body>
+    <h1>Patients</h1>
+    <table border="2">
+      <thead>
+        <th>Id</th>
+        <th>FirstName</th>
+        <th>LastName</th>
+        <th>Age</th>
+      </thead>
+      {% for p in patient_list %}
+      <tr>
+        <td>{{p.id}}</td>
+        <td>{{p.firstName}}</td>
+        <td>{{p.lastName}}</td>
+        <td>{{p.age}}</td>
+        <td><a href="/update/{{p.id}}">Update</a></td>
+        <td><a href="/delete/{{p.id}}">Delete</a></td>
+        <td><a href="/analyze/{{p.id}}">Analyze</a></td>
+      </tr>
+      {% endfor %}
+    </table>
+    <br>
+    <a href="/create"> Add Patient</a>
+  </body>
+</html>
